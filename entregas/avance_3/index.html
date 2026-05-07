@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avance 3 · App local — Clasificador de Residuos</title>
+<style>
+  :root{
+    --azul:#0f3460; --azul-claro:#3498db; --naranja:#f5b942;
+    --verde:#27ae60; --rojo:#e74c3c; --gris:#1a1a2e;
+    --bg:#f7f8fb; --card:#ffffff; --txt:#1a1a2e; --muted:#5a6675;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--bg);color:var(--txt);line-height:1.6}
+  .nav{background:var(--gris);color:#fff;padding:12px 24px;font-size:14px}
+  .nav a{color:var(--naranja);text-decoration:none;margin-right:16px}
+  .nav a:hover{text-decoration:underline}
+  .hero{background:linear-gradient(135deg,var(--gris),var(--azul));
+        color:#fff;padding:48px 24px;text-align:center}
+  .hero .emoji{font-size:64px;margin-bottom:8px}
+  .hero h1{margin:8px 0;font-size:32px}
+  .hero .subtitle{color:var(--naranja);font-size:18px;margin:8px 0}
+  .hero .meta{color:#cfd6e0;font-size:14px;margin-top:12px}
+  .badge{display:inline-block;padding:4px 12px;border-radius:20px;background:var(--verde);
+         color:#fff;font-size:13px;font-weight:600;margin-top:8px}
+  .container{max-width:960px;margin:0 auto;padding:32px 24px}
+  .card{background:var(--card);border-radius:12px;padding:24px 28px;margin:20px 0;
+        box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+  .card h2{color:var(--azul);margin-top:0;border-bottom:2px solid var(--naranja);
+           padding-bottom:8px;font-size:22px}
+  .card h3{color:var(--azul);font-size:18px}
+  table{width:100%;border-collapse:collapse;margin:12px 0}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #e0e6ed}
+  th{background:#f0f3f8;color:var(--azul);font-weight:700}
+  pre{background:#1a1a2e;color:#dde3ec;padding:14px 18px;border-radius:8px;
+      overflow-x:auto;font-family:"SF Mono",Menlo,monospace;font-size:0.92em}
+  code{background:#eef2f7;padding:2px 6px;border-radius:4px;font-family:"SF Mono",Menlo,monospace;font-size:0.92em}
+  pre code{background:transparent;padding:0}
+  img{max-width:100%;height:auto;border-radius:8px;margin:12px 0;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+  .screens{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:16px 0}
+  .screens figure{margin:0}
+  .screens figcaption{text-align:center;color:var(--muted);font-size:13px;margin-top:6px}
+  .footer{background:var(--gris);color:#cfd6e0;text-align:center;padding:24px;font-size:13px;margin-top:40px}
+  .footer a{color:var(--naranja);text-decoration:none}
+  .btn{display:inline-block;padding:10px 18px;background:var(--azul);color:#fff;
+       border-radius:8px;text-decoration:none;margin:4px 8px 4px 0;font-weight:600;font-size:14px}
+  .btn:hover{background:var(--azul-claro)}
+  .btn.secondary{background:#e0e6ed;color:var(--azul)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../../">🏠 Inicio</a>
+  <a href="../">📦 Todas las entregas</a>
+  <a href="https://github.com/kalu-20/clasificador-residuos" target="_blank">⌨️ GitHub</a>
+</nav>
+
+<header class="hero">
+  <div class="emoji">🖥️</div>
+  <h1>Avance 3 — App local funcionando</h1>
+  <p class="subtitle">Streamlit + uploader de imagen + recomendación contextual</p>
+  <p class="meta">Fecha: 29/05/2026 · TIF UPATecO Salta 2026</p>
+  <span class="badge">✅ Completo</span>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Resumen</h2>
+    <p>App Streamlit con uploader de imagen carga el modelo y devuelve la
+       <strong>predicción de tipo de residuo</strong> + probabilidades
+       + <strong>recomendación contextual de reciclaje</strong>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Cómo correr</h2>
+<pre><code>pip install -r requirements.txt
+streamlit run app/streamlit_app.py</code></pre>
+    <p>La app se abre en <code>http://localhost:8501</code>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Capturas</h2>
+    <div class="screens">
+      <figure>
+        <img src="app_screenshot_inicio.png" alt="Pantalla de inicio de la app">
+        <figcaption>Pantalla de inicio con header + sidebar + uploader</figcaption>
+      </figure>
+      <figure>
+        <img src="app_screenshot_prediccion.png" alt="Pantalla de predicción">
+        <figcaption>Predicción + probabilidades + recomendación</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Funcionalidad</h2>
+    <table>
+      <tr><th>Sección</th><th>Descripción</th></tr>
+      <tr><td>Header</td><td>Título + caveat ético (no reemplaza el etiquetado correcto)</td></tr>
+      <tr><td>Sidebar</td><td>Info modelo + métricas</td></tr>
+      <tr><td>Uploader</td><td>JPG / PNG</td></tr>
+      <tr><td>Predicción</td><td>Card grande con clase y probabilidad</td></tr>
+      <tr><td>Bar chart</td><td>9 probabilidades visualizadas</td></tr>
+      <tr><td>Recomendación</td><td>Mensaje según tipo de residuo (qué contenedor, cómo reciclarlo)</td></tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Documentos de la entrega</h2>
+    <p>
+      <a class="btn" href="https://github.com/kalu-20/clasificador-residuos/blob/main/entregas/avance_3/avance_3.md" target="_blank">📄 avance_3.md</a>
+      <a class="btn secondary" href="https://github.com/kalu-20/clasificador-residuos/blob/main/app/streamlit_app.py" target="_blank">🐍 streamlit_app.py</a>
+    </p>
+  </section>
+
+  <nav class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <a class="btn secondary" href="../avance_2/">← Avance 2</a>
+    <a class="btn" href="../avance_4/">Siguiente: Avance 4 →</a>
+  </nav>
+</main>
+
+<footer class="footer">
+  <p>María Claudia Fabián · UPATecO Salta · 2026<br>
+  <a href="https://github.com/kalu-20/clasificador-residuos">github.com/kalu-20/clasificador-residuos</a></p>
+</footer>
+</body>
+</html>

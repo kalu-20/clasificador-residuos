@@ -10,11 +10,11 @@
 | F1 macro | 0,459 |
 | Random baseline | 0,111 |
 
-![vs baseline](../reports/figures/07_vs_baseline.png)
+![vs baseline](../../reports/figures/07_vs_baseline.png)
 
 ## Matriz de confusión 9×9
 
-![Matriz](../reports/figures/02_matriz_confusion.png)
+![Matriz](../../reports/figures/02_matriz_confusion.png)
 
 **Lecturas:**
 - **Food Organics, Metal, Textile Trash** son las clases mejor identificadas.
@@ -23,13 +23,13 @@
 
 ## Curvas ROC
 
-![ROC](../reports/figures/03_curva_roc.png)
+![ROC](../../reports/figures/03_curva_roc.png)
 
 AUC promedio > 0,75 — buena separabilidad pese al accuracy moderado.
 
 ## Análisis de errores
 
-![Errores](../reports/figures/09_analisis_errores.png)
+![Errores](../../reports/figures/09_analisis_errores.png)
 
 Patrones principales:
 - **Cardboard ↔ Paper:** confusión esperable.
