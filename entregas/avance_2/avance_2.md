@@ -16,7 +16,7 @@ Modelo CNN entrenado y funcionando. MobileNetV2 + Transfer Learning + Fine-tunin
 
 ## Resultados
 
-![Curvas](../reports/figures/01_curvas_entrenamiento.png)
+![Curvas](../../reports/figures/01_curvas_entrenamiento.png)
 
 | Métrica | Valor |
 |---|---|
@@ -39,7 +39,7 @@ Modelo CNN entrenado y funcionando. MobileNetV2 + Transfer Learning + Fine-tunin
 | Cardboard | 0,24 |
 | Vegetation | 0,20 |
 
-![Per-class accuracy](../reports/figures/06_accuracy_por_clase.png)
+![Per-class accuracy](../../reports/figures/06_accuracy_por_clase.png)
 
 ## Decisiones justificadas
 

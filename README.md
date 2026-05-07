@@ -102,13 +102,15 @@ streamlit run app/streamlit_app.py
 
 ## 📅 Cronograma de entregas (TIF)
 
-| Avance | Fecha | Carpeta |
-|---|---|---|
-| Avance 1 — Problema y plan | 24/04/2026 | [`entregas/avance_1/`](entregas/avance_1/) |
-| Avance 2 — Núcleo técnico | 08/05/2026 | [`entregas/avance_2/`](entregas/avance_2/) |
-| Avance 3 — App local | 29/05/2026 | [`entregas/avance_3/`](entregas/avance_3/) |
-| Avance 4 — Evaluación completa | 12/06/2026 | [`entregas/avance_4/`](entregas/avance_4/) |
-| Presentación final | 23-30/06/2026 | [`entregas/avance_5/`](entregas/avance_5/) |
+🌐 **Índice web de entregas:** [kalu-20.github.io/clasificador-residuos/entregas/](https://kalu-20.github.io/clasificador-residuos/entregas/)
+
+| Avance | Fecha | Página web | Carpeta |
+|---|---|---|---|
+| Avance 1 — Problema y plan | 24/04/2026 | [📄 ver online](https://kalu-20.github.io/clasificador-residuos/entregas/avance_1/) | [`entregas/avance_1/`](entregas/avance_1/) |
+| Avance 2 — Núcleo técnico | 08/05/2026 | [📄 ver online](https://kalu-20.github.io/clasificador-residuos/entregas/avance_2/) | [`entregas/avance_2/`](entregas/avance_2/) |
+| Avance 3 — App local | 29/05/2026 | [📄 ver online](https://kalu-20.github.io/clasificador-residuos/entregas/avance_3/) | [`entregas/avance_3/`](entregas/avance_3/) |
+| Avance 4 — Evaluación completa | 12/06/2026 | [📄 ver online](https://kalu-20.github.io/clasificador-residuos/entregas/avance_4/) | [`entregas/avance_4/`](entregas/avance_4/) |
+| Presentación final | 23-30/06/2026 | [📄 ver online](https://kalu-20.github.io/clasificador-residuos/entregas/avance_5/) | [`entregas/avance_5/`](entregas/avance_5/) |
 
 ## 📜 Licencia
 

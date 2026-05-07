@@ -15,8 +15,8 @@ streamlit run app/streamlit_app.py
 
 ## Capturas
 
-![App inicio](../reports/figures/app_screenshot_inicio.png)
-![App predicción](../reports/figures/app_screenshot_prediccion.png)
+![App inicio](../../reports/figures/app_screenshot_inicio.png)
+![App predicción](../../reports/figures/app_screenshot_prediccion.png)
 
 ## Funcionalidad
 

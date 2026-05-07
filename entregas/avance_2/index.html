@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avance 2 · Núcleo técnico — Clasificador de Residuos</title>
+<style>
+  :root{
+    --azul:#0f3460; --azul-claro:#3498db; --naranja:#f5b942;
+    --verde:#27ae60; --rojo:#e74c3c; --gris:#1a1a2e;
+    --bg:#f7f8fb; --card:#ffffff; --txt:#1a1a2e; --muted:#5a6675;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--bg);color:var(--txt);line-height:1.6}
+  .nav{background:var(--gris);color:#fff;padding:12px 24px;font-size:14px}
+  .nav a{color:var(--naranja);text-decoration:none;margin-right:16px}
+  .nav a:hover{text-decoration:underline}
+  .hero{background:linear-gradient(135deg,var(--gris),var(--azul));
+        color:#fff;padding:48px 24px;text-align:center}
+  .hero .emoji{font-size:64px;margin-bottom:8px}
+  .hero h1{margin:8px 0;font-size:32px}
+  .hero .subtitle{color:var(--naranja);font-size:18px;margin:8px 0}
+  .hero .meta{color:#cfd6e0;font-size:14px;margin-top:12px}
+  .badge{display:inline-block;padding:4px 12px;border-radius:20px;background:var(--verde);
+         color:#fff;font-size:13px;font-weight:600;margin-top:8px}
+  .container{max-width:960px;margin:0 auto;padding:32px 24px}
+  .card{background:var(--card);border-radius:12px;padding:24px 28px;margin:20px 0;
+        box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+  .card h2{color:var(--azul);margin-top:0;border-bottom:2px solid var(--naranja);
+           padding-bottom:8px;font-size:22px}
+  .card h3{color:var(--azul);font-size:18px}
+  table{width:100%;border-collapse:collapse;margin:12px 0}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #e0e6ed}
+  th{background:#f0f3f8;color:var(--azul);font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:16px 0}
+  .stat{background:linear-gradient(135deg,var(--azul-claro),var(--azul));color:#fff;
+        border-radius:12px;padding:20px;text-align:center}
+  .stat.green{background:linear-gradient(135deg,var(--verde),#1e8449)}
+  .stat.orange{background:linear-gradient(135deg,var(--naranja),#d35400)}
+  .stat .v{font-size:30px;font-weight:700;display:block}
+  .stat .l{font-size:13px;opacity:0.9}
+  code,pre{background:#eef2f7;padding:2px 6px;border-radius:4px;font-family:"SF Mono",Menlo,monospace;
+           font-size:0.92em}
+  pre{padding:12px 16px;overflow-x:auto}
+  img{max-width:100%;height:auto;border-radius:8px;margin:12px 0;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+  .footer{background:var(--gris);color:#cfd6e0;text-align:center;padding:24px;font-size:13px;margin-top:40px}
+  .footer a{color:var(--naranja);text-decoration:none}
+  .btn{display:inline-block;padding:10px 18px;background:var(--azul);color:#fff;
+       border-radius:8px;text-decoration:none;margin:4px 8px 4px 0;font-weight:600;font-size:14px}
+  .btn:hover{background:var(--azul-claro)}
+  .btn.secondary{background:#e0e6ed;color:var(--azul)}
+  .star{color:var(--naranja);font-size:1.2em}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../../">🏠 Inicio</a>
+  <a href="../">📦 Todas las entregas</a>
+  <a href="https://github.com/kalu-20/clasificador-residuos" target="_blank">⌨️ GitHub</a>
+</nav>
+
+<header class="hero">
+  <div class="emoji">🧠</div>
+  <h1>Avance 2 — Núcleo técnico funcionando</h1>
+  <p class="subtitle">CNN entrenada con Transfer Learning</p>
+  <p class="meta">Fecha: 08/05/2026 · TIF UPATecO Salta 2026</p>
+  <span class="badge">✅ Completo</span>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Resumen</h2>
+    <p>Modelo CNN entrenado y funcionando. <strong>MobileNetV2 + Transfer Learning + Fine-tuning</strong>
+       logra <strong>48,1 % accuracy</strong> y <strong>F1 macro 0,459</strong> sobre 96 imágenes test
+       (× 4,3 mejor que random).</p>
+    <div class="grid">
+      <div class="stat green"><span class="v">48,1 %</span><span class="l">Accuracy</span></div>
+      <div class="stat"><span class="v">0,459</span><span class="l">F1 macro</span></div>
+      <div class="stat orange"><span class="v">× 4,3</span><span class="l">vs random</span></div>
+      <div class="stat"><span class="v">~9 MB</span><span class="l">Modelo final</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Pipeline implementado</h2>
+    <ol>
+      <li>Carga con <code>ImageFolder</code> (9 clases).</li>
+      <li>Augmentación: flips, rotaciones, color jitter.</li>
+      <li>MobileNetV2 ImageNet → custom classifier (Dropout + 64-FC + 9-FC).</li>
+      <li>Entrenamiento 2 fases: <em>frozen</em> (LR=1e-3) + <em>fine-tuning</em> (LR=1e-4).</li>
+      <li>Persistencia: <code>models/best_model_waste.pt</code> (~9 MB).</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Curvas de entrenamiento</h2>
+    <img src="../../reports/figures/01_curvas_entrenamiento.png" alt="Curvas de entrenamiento">
+  </section>
+
+  <section class="card">
+    <h2>Resultados por clase</h2>
+    <table>
+      <tr><th>Clase</th><th>F1</th></tr>
+      <tr><td>Food Organics <span class="star">⭐</span></td><td>0,76</td></tr>
+      <tr><td>Metal</td><td>0,67</td></tr>
+      <tr><td>Textile Trash</td><td>0,62</td></tr>
+      <tr><td>Glass</td><td>0,52</td></tr>
+      <tr><td>Plastic</td><td>0,51</td></tr>
+      <tr><td>Misc Trash</td><td>0,39</td></tr>
+      <tr><td>Paper</td><td>0,24</td></tr>
+      <tr><td>Cardboard</td><td>0,24</td></tr>
+      <tr><td>Vegetation</td><td>0,20</td></tr>
+    </table>
+    <img src="../../reports/figures/06_accuracy_por_clase.png" alt="Accuracy por clase">
+  </section>
+
+  <section class="card">
+    <h2>Decisiones justificadas</h2>
+    <table>
+      <tr><th>Decisión</th><th>Motivo</th></tr>
+      <tr><td>MobileNetV2</td><td>5× más liviano que ResNet, corre en CPU</td></tr>
+      <tr><td>64×64 px</td><td>Velocidad CPU; suficiente detalle para residuos</td></tr>
+      <tr><td>Transfer Learning</td><td>Solo 384 train; from-scratch necesitaría miles</td></tr>
+      <tr><td>WeightedRandomSampler</td><td>Train tenía clases con 35 vs 65 imgs</td></tr>
+      <tr><td>4 épocas (2+2)</td><td>Más épocas saturaban — empezaba overfitting</td></tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Documentos de la entrega</h2>
+    <p>
+      <a class="btn" href="https://github.com/kalu-20/clasificador-residuos/blob/main/entregas/avance_2/avance_2.md" target="_blank">📄 avance_2.md</a>
+      <a class="btn secondary" href="https://github.com/kalu-20/clasificador-residuos/blob/main/notebook.ipynb" target="_blank">📓 Notebook</a>
+      <a class="btn secondary" href="https://colab.research.google.com/github/kalu-20/clasificador-residuos/blob/main/notebook.ipynb" target="_blank">▶️ Abrir en Colab</a>
+    </p>
+  </section>
+
+  <nav class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <a class="btn secondary" href="../avance_1/">← Avance 1</a>
+    <a class="btn" href="../avance_3/">Siguiente: Avance 3 →</a>
+  </nav>
+</main>
+
+<footer class="footer">
+  <p>María Claudia Fabián · UPATecO Salta · 2026<br>
+  <a href="https://github.com/kalu-20/clasificador-residuos">github.com/kalu-20/clasificador-residuos</a></p>
+</footer>
+</body>
+</html>

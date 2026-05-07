@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avance 5 · Presentación final — Clasificador de Residuos</title>
+<style>
+  :root{
+    --azul:#0f3460; --azul-claro:#3498db; --naranja:#f5b942;
+    --verde:#27ae60; --rojo:#e74c3c; --gris:#1a1a2e;
+    --bg:#f7f8fb; --card:#ffffff; --txt:#1a1a2e; --muted:#5a6675;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--bg);color:var(--txt);line-height:1.6}
+  .nav{background:var(--gris);color:#fff;padding:12px 24px;font-size:14px}
+  .nav a{color:var(--naranja);text-decoration:none;margin-right:16px}
+  .nav a:hover{text-decoration:underline}
+  .hero{background:linear-gradient(135deg,var(--gris),var(--azul));
+        color:#fff;padding:48px 24px;text-align:center}
+  .hero .emoji{font-size:64px;margin-bottom:8px}
+  .hero h1{margin:8px 0;font-size:32px}
+  .hero .subtitle{color:var(--naranja);font-size:18px;margin:8px 0}
+  .hero .meta{color:#cfd6e0;font-size:14px;margin-top:12px}
+  .badge{display:inline-block;padding:4px 12px;border-radius:20px;background:var(--naranja);
+         color:#1a1a2e;font-size:13px;font-weight:600;margin-top:8px}
+  .container{max-width:960px;margin:0 auto;padding:32px 24px}
+  .card{background:var(--card);border-radius:12px;padding:24px 28px;margin:20px 0;
+        box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+  .card h2{color:var(--azul);margin-top:0;border-bottom:2px solid var(--naranja);
+           padding-bottom:8px;font-size:22px}
+  .card h3{color:var(--azul);font-size:18px}
+  ul.checklist{list-style:none;padding-left:0}
+  ul.checklist li{padding:6px 0;padding-left:28px;position:relative}
+  ul.checklist li.done::before{content:"✅";position:absolute;left:0}
+  ul.checklist li.todo::before{content:"⬜";position:absolute;left:0}
+  ol{padding-left:22px}
+  ol li{padding:4px 0}
+  .resources{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+  .res{background:linear-gradient(135deg,#f7f8fb,#e7edf5);border:1px solid #d0d8e2;
+       border-radius:12px;padding:18px;text-decoration:none;color:var(--txt);
+       transition:transform 0.15s,box-shadow 0.15s}
+  .res:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,0.1)}
+  .res .ico{font-size:32px;margin-bottom:6px}
+  .res .ttl{font-weight:700;color:var(--azul);font-size:15px}
+  .res .sub{color:var(--muted);font-size:13px;margin-top:4px}
+  .footer{background:var(--gris);color:#cfd6e0;text-align:center;padding:24px;font-size:13px;margin-top:40px}
+  .footer a{color:var(--naranja);text-decoration:none}
+  .btn{display:inline-block;padding:10px 18px;background:var(--azul);color:#fff;
+       border-radius:8px;text-decoration:none;margin:4px 8px 4px 0;font-weight:600;font-size:14px}
+  .btn:hover{background:var(--azul-claro)}
+  .btn.secondary{background:#e0e6ed;color:var(--azul)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../../">🏠 Inicio</a>
+  <a href="../">📦 Todas las entregas</a>
+  <a href="https://github.com/kalu-20/clasificador-residuos" target="_blank">⌨️ GitHub</a>
+</nav>
+
+<header class="hero">
+  <div class="emoji">🎓</div>
+  <h1>Avance 5 — Presentación final</h1>
+  <p class="subtitle">Informe APA + Presentación + Defensa</p>
+  <p class="meta">Fechas posibles: 23, 26 o 30 de junio de 2026 · TIF UPATecO Salta 2026</p>
+  <span class="badge">🟡 En curso</span>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Esencial para el docente</h2>
+    <div class="resources">
+      <a class="res" href="https://github.com/kalu-20/clasificador-residuos/raw/main/reports/Informe_APA_TIF_Residuos.pdf" target="_blank">
+        <div class="ico">📄</div>
+        <div class="ttl">Informe APA (PDF)</div>
+        <div class="sub">18+ páginas, 10 figuras</div>
+      </a>
+      <a class="res" href="https://github.com/kalu-20/clasificador-residuos/raw/main/reports/Presentacion_Final_TIF_Residuos.pptx" target="_blank">
+        <div class="ico">🎤</div>
+        <div class="ttl">Presentación PPTX</div>
+        <div class="sub">10 slides</div>
+      </a>
+      <a class="res" href="https://github.com/kalu-20/clasificador-residuos/blob/main/notebook.ipynb" target="_blank">
+        <div class="ico">📓</div>
+        <div class="ttl">Notebook ejecutado</div>
+        <div class="sub">Con outputs y figuras</div>
+      </a>
+      <a class="res" href="../../">
+        <div class="ico">🌐</div>
+        <div class="ttl">Versión web (Pages)</div>
+        <div class="sub">Sin instalar nada</div>
+      </a>
+      <a class="res" href="https://colab.research.google.com/github/kalu-20/clasificador-residuos/blob/main/notebook.ipynb" target="_blank">
+        <div class="ico">▶️</div>
+        <div class="ttl">Abrir en Colab</div>
+        <div class="sub">Reproducible 1-click</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Estructura del Informe APA</h2>
+    <ol>
+      <li>Resumen + palabras clave</li>
+      <li>Introducción (contexto, pregunta, objetivos)</li>
+      <li>Marco teórico (CNN, MobileNetV2, gestión de residuos)</li>
+      <li>Metodología (dataset, preprocesamiento, modelado)</li>
+      <li>Resultados (curvas, métricas, matriz, ROC, app)</li>
+      <li>Discusión (interpretación, limitaciones)</li>
+      <li>Conclusiones</li>
+      <li>Referencias</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Pendientes</h2>
+    <ul class="checklist">
+      <li class="todo">Grabar video de la app (~5 min)</li>
+      <li class="todo">Repartir bloques de exposición entre integrantes</li>
+      <li class="todo">Ensayos grupales (mínimo 2)</li>
+    </ul>
+  </section>
+
+  <nav class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <a class="btn secondary" href="../avance_4/">← Avance 4</a>
+    <a class="btn" href="../">📦 Volver al índice de entregas</a>
+  </nav>
+</main>
+
+<footer class="footer">
+  <p>María Claudia Fabián · UPATecO Salta · 2026<br>
+  <a href="https://github.com/kalu-20/clasificador-residuos">github.com/kalu-20/clasificador-residuos</a></p>
+</footer>
+</body>
+</html>
